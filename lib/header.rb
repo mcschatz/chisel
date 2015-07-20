@@ -1,4 +1,4 @@
-class Convert_headers
+class ConvertHeaders
   def html_headers(line)
     num = line.count('#')
     line.delete!('#').strip!

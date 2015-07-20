@@ -1,4 +1,4 @@
-class Paragraph_parser
+class ParagraphParser
   def strong(line)
     while line.include?("**")
       line.sub!("**", "<strong>")

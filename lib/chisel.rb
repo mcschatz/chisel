@@ -26,22 +26,22 @@ class Chisel
     lines.each do |line|
       case line != nil
       when header?(line)
-        content << Convert_headers.new.html_headers(line)
+        content << ConvertHeaders.new.html_headers(line)
       when ul?(line)
-        content << Convert_ul.new.change_ul(line)
+        content << ConvertUl.new.change_ul(line)
       when ol?(line)
-        content << Convert_ol.new.change_ol(line)
+        content << ConvertOl.new.change_ol(line)
       when empty?(line)
         content << line
       else
-        content << Paragraph_parser.new.strong(line)
+        content << ParagraphParser.new.strong(line)
       end
     end
     content
   end
 
   def write_file(file)
-    Write_file.new.html_file(file)
+    WriteFile.new.html_file(file)
   end
 
   def header?(line)

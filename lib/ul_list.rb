@@ -1,4 +1,4 @@
-class Convert_ul
+class ConvertUl
   def change_ul(line)
       md_string = ""
       line.each_line do |line|

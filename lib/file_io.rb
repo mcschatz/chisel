@@ -1,4 +1,4 @@
-class Write_file
+class WriteFile
   def html_file(content)
     File.open('output.html', 'w') do |file|
       puts content

@@ -1,4 +1,4 @@
-class Convert_ol
+class ConvertOl
   def change_ol(line)
     md_string = ""
     line.each_line do |line|
