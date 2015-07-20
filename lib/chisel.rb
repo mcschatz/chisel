@@ -12,12 +12,18 @@ class Chisel
   attr_accessor :line
 
   def initialize(file)
-    process_file(file)
+    read_markdown_content(file)
   end
 
-  def process_file(file)
+  def read_markdown_content(file)
+    lines = File.open(file).read.split("\n\n")
+    converted_file = process_file(lines)
+    write_file(converted_file)
+  end
+
+  def process_file(lines)
     content = ""
-    File.open(file).read.split("\n\n").each do |line|
+    lines.each do |line|
       case line != nil
       when header?(line)
         content << Convert_headers.new.html_headers(line)
@@ -31,7 +37,11 @@ class Chisel
         content << Paragraph_parser.new.strong(line)
       end
     end
-    Write_file.new.html_file(content)
+    content
+  end
+
+  def write_file(file)
+    Write_file.new.html_file(file)
   end
 
   def header?(line)
