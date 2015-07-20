@@ -20,7 +20,7 @@ class Chisel
     File.open(file).read.split("\n\n").each do |line|
       case line != nil
       when header?(line)
-        content << Convert_headers.new.convert_headers(line)
+        content << Convert_headers.new.html_headers(line)
       when ul?(line)
         content << Convert_ul.new.change_ul(line)
       when ol?(line)

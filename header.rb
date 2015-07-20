@@ -1,5 +1,5 @@
 class Convert_headers
-  def convert_headers(line)
+  def html_headers(line)
     num = line.count('#')
     line.delete!('#').strip!
     "<h#{num}>#{line}</h#{num}>\n\n"
